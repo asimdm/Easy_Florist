@@ -6,7 +6,7 @@ function ProductPage(){
 
     return(
         <div>
-            
+            {productId}
         </div>
     )
 }
