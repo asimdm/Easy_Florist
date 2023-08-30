@@ -22,3 +22,29 @@ header a{
   text-decoration: none;
   margin-left: 0.5rem;
 }
+
+main{
+  padding-top: 2rem;
+}
+
+.products{
+  display: flex;
+  flex-wrap: wrap;
+  background-image: linear-gradient(to bottom, #dfcad6, rgba(214, 231, 239, 0.467));
+  justify-content: left;
+}
+
+.product{
+  margin: 4px;
+  background-color: #ffffff;
+  padding: 0.5rem;
+}
+
+.product img{
+  width: 100%;
+  max-width: 300px;
+}
+
+.product-info{
+  text-align: center;
+}
