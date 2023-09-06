@@ -9,10 +9,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.site-container{
+  min-height: 100vh;
+}
+
 header {
   background-color: #f7bddf;
   background-image: linear-gradient(to bottom, #fc9bd4, #ffffff);
-  padding: 1rem;
+  padding: 1rem 0 1rem 0;
 }
 
 header a{
@@ -20,11 +24,10 @@ header a{
   font-family: 'Libre Baskerville', cursive;
   font-size: 1.5rem;
   text-decoration: none;
-  margin-left: 0.5rem;
 }
 
 main{
-  padding-top: 2rem;
+  flex: 1;
 }
 
 .products{
@@ -42,7 +45,7 @@ main{
 
 .product img{
   width: 100%;
-  max-width: 300px;
+  max-width: 255px;
 }
 
 .product-info{

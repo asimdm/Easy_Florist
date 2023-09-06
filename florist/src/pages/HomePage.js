@@ -1,6 +1,7 @@
 import { useEffect, useReducer } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import {Container} from react-bootstrap;
 /* import data from "../data"; */
 
 const reducer = (state, action) => {
@@ -46,21 +47,25 @@ function HomePage() {
         ) : error ? (
           <div>{error}</div>
         ) : (
-          products.map((product) => (
-            <div className="product" key={product.productId}>
-              <Link
-                style={{ textDecoration: "none", color: "black" }}
-                to={`/product/${product.productId}`}>
-                <img src={product.image} alt="bouquet" />
-                <div className="product-info">
-                  <p>{product.name}</p>
-                  <p>
-                    <strong>₹{product.price}</strong>
-                  </p>
-                </div>
-              </Link>
-            </div>
-          ))
+          <Row>
+            {products.map((product) => (
+              <Col sm={6} md={4}>
+              <div className="product" key={product.productId}>
+                <Link
+                  style={{ textDecoration: "none", color: "black" }}
+                  to={`/product/${product.productId}`}>
+                  <img src={product.image} alt="bouquet" />
+                  <div className="product-info">
+                    <p>{product.name}</p>
+                    <p>
+                      <strong>₹{product.price}</strong>
+                    </p>
+                  </div>
+                </Link>
+              </div>
+              </Col>
+            ))}
+          </Row>
         )}
       </div>
     </div>
