@@ -8,7 +8,7 @@ function Products(props) {
     <Card className="m-1 p-2">
       <Link
         style={{ textDecoration: "none", color: "black" }}
-        to={`/product/${product.productId}`}>
+        to={`/products/id/${product.productId}`}>
         <img src={product.image} className="card-img-top" alt="bouquet" />
         <div className="product-info">
           <Card.Body>

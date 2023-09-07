@@ -55,3 +55,7 @@ main{
 .rating{
   color: rgb(59, 111, 98);
 }
+
+.img-large{
+  max-width: 100%;
+}

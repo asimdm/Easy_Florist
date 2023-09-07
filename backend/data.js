@@ -7,7 +7,7 @@ const data = {
             price: 850,
             category: 'orchids',
             image: '/images/midnight-orchid.png',
-            countInStock: 30,
+            countInStock: 10,
             rating: 5,
             numReviews: 25,
             description: 'The most highly coveted of ornamental plants the delicate, exotic and graceful orchid represents love, luxury, beauty and strength. Mesmerize your loved ones with this luxurious orchid bouquet with Asparagus Fillers.',
@@ -28,7 +28,7 @@ const data = {
             countInStock: 10,
             rating: 4.5,
             numReviews: 10,
-            description: "The pure, facinationg and royal God's Flower represents devotion, love and fascination. Enchant your other half with this calming carnations bouquet with WGreen Goldenrod Fillers.",
+            description: "The pure, facinationg and royal God's Flower represents devotion, love and fascination. Enchant your other half with this calming carnations bouquet with Green Goldenrod Fillers.",
             productDetails: [
                 '8 White Carnations',
                 'Green Goldenrod Fillers',

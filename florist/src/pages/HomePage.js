@@ -4,6 +4,7 @@ import axios from "axios";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Products from "../component/Products";
+import { Helmet } from "react-helmet-async";
 /* import data from "../data"; */
 
 const reducer = (state, action) => {
@@ -42,6 +43,9 @@ function HomePage() {
   }, []);
   return (
     <div>
+      <Helmet>
+        <title>Easy Florist</title>
+      </Helmet>
       <h3>Popular Bouquet</h3>
       <div className="products">
         {loading ? (
