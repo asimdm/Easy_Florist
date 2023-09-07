@@ -9,7 +9,7 @@ const data = {
             image: '/images/midnight-orchid.png',
             countInStock: 30,
             rating: 5,
-            numReviews: 15,
+            numReviews: 25,
             description: 'The most highly coveted of ornamental plants the delicate, exotic and graceful orchid represents love, luxury, beauty and strength. Mesmerize your loved ones with this luxurious orchid bouquet with Asparagus Fillers.',
             productDetails: [
                 '6 Blue Orchids',
@@ -27,7 +27,7 @@ const data = {
             image: '/images/white-carnations.png',
             countInStock: 10,
             rating: 4.5,
-            numReviews: 15,
+            numReviews: 10,
             description: "The pure, facinationg and royal God's Flower represents devotion, love and fascination. Enchant your other half with this calming carnations bouquet with WGreen Goldenrod Fillers.",
             productDetails: [
                 '8 White Carnations',
@@ -45,7 +45,7 @@ const data = {
             image: '/images/red-roses.png',
             countInStock: 50,
             rating: 5,
-            numReviews: 15,
+            numReviews: 45,
             description: 'The classic beauty of flowers the romantic and passionate rose represents love, hope, gratitude, passion and compassion. Bring your loved ones this classic red rose bouquet with White Gypsy Flower Fillers, to show your love.',
             productDetails: [
                 '10 Red Roses',
@@ -82,7 +82,7 @@ const data = {
             image: '/images/asiatic-lilies.png',
             countInStock: 20,
             rating: 4.5,
-            numReviews: 15,
+            numReviews: 37,
             description: 'Lilies have long been associated with love, devotion and purity. Charm everyone with this sweet and innocent beauty of the flower has ensured it remains tied to the ideas of fresh new life and rebirth.',
             productDetails: [
                 '2 Pink Asiatic Lilies',

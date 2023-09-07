@@ -1,7 +1,9 @@
 import { useEffect, useReducer } from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import axios from "axios";
-import {Container} from react-bootstrap;
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Products from "../component/Products";
 /* import data from "../data"; */
 
 const reducer = (state, action) => {
@@ -49,20 +51,8 @@ function HomePage() {
         ) : (
           <Row>
             {products.map((product) => (
-              <Col sm={6} md={4}>
-              <div className="product" key={product.productId}>
-                <Link
-                  style={{ textDecoration: "none", color: "black" }}
-                  to={`/product/${product.productId}`}>
-                  <img src={product.image} alt="bouquet" />
-                  <div className="product-info">
-                    <p>{product.name}</p>
-                    <p>
-                      <strong>₹{product.price}</strong>
-                    </p>
-                  </div>
-                </Link>
-              </div>
+              <Col sm={6} md={4} lg={3} className="mb-3 d-flex align-items-stretch" key={product.productId}>
+                <Products product={product}></Products>
               </Col>
             ))}
           </Row>

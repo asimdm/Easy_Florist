@@ -51,3 +51,7 @@ main{
 .product-info{
   text-align: center;
 }
+
+.rating{
+  color: rgb(59, 111, 98);
+}
