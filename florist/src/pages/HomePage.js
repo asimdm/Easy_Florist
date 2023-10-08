@@ -5,6 +5,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Products from "../component/Products";
 import { Helmet } from "react-helmet-async";
+import Loading from "../component/Loading";
+import MessageBox from "../component/MessageBox";
 /* import data from "../data"; */
 
 const reducer = (state, action) => {
@@ -49,13 +51,18 @@ function HomePage() {
       <h3>Popular Bouquet</h3>
       <div className="products">
         {loading ? (
-          <div>Loading....</div>
+          <Loading />
         ) : error ? (
-          <div>{error}</div>
+          <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <Row>
             {products.map((product) => (
-              <Col sm={6} md={4} lg={3} className="mb-3 d-flex align-items-stretch" key={product.productId}>
+              <Col
+                sm={6}
+                md={4}
+                lg={3}
+                className="mb-3 d-flex align-items-stretch"
+                key={product.productId}>
                 <Products product={product}></Products>
               </Col>
             ))}

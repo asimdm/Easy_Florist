@@ -9,6 +9,9 @@ import Badge from "react-bootstrap/Badge";
 import { useParams } from "react-router-dom";
 import Rating from "../component/Rating";
 import { Helmet } from "react-helmet-async";
+import Loading from "../component/Loading";
+import MessageBox from "../component/MessageBox";
+import { getError } from "../utils";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -38,15 +41,15 @@ function ProductPage() {
         const result = await axios.get(`/products/id/${productId}`);
         dispatch({ type: "FETCH_SUCCESS", payload: result.data });
       } catch (err) {
-        dispatch({ type: "FETCH_ERROR", payload: err.message });
+        dispatch({ type: "FETCH_ERROR", payload: getError(err) });
       }
     };
     fetchData();
   }, [productId]);
   return loading ? (
-    <div>Loading...</div>
+    <Loading />
   ) : error ? (
-    <div>{error}</div>
+    <MessageBox variant="danger">{error}</MessageBox>
   ) : (
     <div>
       <Row>
