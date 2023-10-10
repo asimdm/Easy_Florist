@@ -37,6 +37,12 @@ main{
   background-image: linear-gradient(to bottom, #dfcad6, rgba(214, 231, 239, 0.467));
 }
 
+.msg{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .product-info{
   text-align: center;
 }

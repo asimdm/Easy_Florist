@@ -47,9 +47,13 @@ function ProductPage() {
     fetchData();
   }, [productId]);
   return loading ? (
-    <Loading />
+    <div className="msg">
+      <Loading />
+    </div>
   ) : error ? (
-    <MessageBox variant="danger">{error}</MessageBox>
+    <div className="msg">
+      <MessageBox variant="danger">{error}</MessageBox>
+    </div>
   ) : (
     <div>
       <Row>
