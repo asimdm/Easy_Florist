@@ -50,8 +50,8 @@ function HomePage() {
         <title>Easy Florist</title>
       </Helmet>
       <Banner />
-      <h3>Popular Bouquet</h3>
-      <div className="products">
+      <h3 style={{marginTop:'30px'}}>Popular Bouquet</h3>
+      <div className="products" style={{marginTop:'10px'}}>
         {loading ? (
           <Loading />
         ) : error ? (
