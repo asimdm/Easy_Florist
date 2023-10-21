@@ -65,6 +65,9 @@ main{
   padding-top:40vh;
   height:100vh;
   overflow:hidden;
+  backface-visibility: hidden;
+  perspective: 1000;
+  transform: translate3d(0,0,0);
   -webkit-backface-visibility: hidden;
   -webkit-perspective: 1000;
   -webkit-transform: translate3d(0,0,0);
@@ -73,6 +76,7 @@ main{
 .text{
   font-size: 100px;
   background: -webkit-linear-gradient(rgb(200, 219, 246), rgb(126, 120, 179), rgb(96, 89, 104), rgb(74, 71, 76));
+  background-clip: text;
   -webkit-background-clip: text;
   top:50%;
   left: 50%;
