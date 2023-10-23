@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet-async";
 import Loading from "../component/Loading";
 import MessageBox from "../component/MessageBox";
 import Banner from "../component/Banner";
+import Header from "../component/Header";
 /* import data from "../data"; */
 
 const reducer = (state, action) => {
@@ -49,6 +50,7 @@ function HomePage() {
       <Helmet>
         <title>Easy Florist</title>
       </Helmet>
+      <Header />
       <Banner />
       <h3 style={{marginTop:'30px'}}>Popular Bouquet</h3>
       <div className="products" style={{marginTop:'10px'}}>

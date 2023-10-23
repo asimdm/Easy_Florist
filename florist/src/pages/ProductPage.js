@@ -13,6 +13,7 @@ import Loading from "../component/Loading";
 import MessageBox from "../component/MessageBox";
 import { getError } from "../utils";
 import { Store } from "../Store";
+import Header from "../component/Header";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -63,6 +64,7 @@ function ProductPage() {
     </div>
   ) : (
     <div>
+      <Header />
       <Row>
         <Col md={5}>
           <img
