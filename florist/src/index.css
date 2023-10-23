@@ -57,7 +57,6 @@ main{
 
 .background{
   text-align:center;
-  background:linear-gradient(141deg, #ccc 25%, #eee 40%, rgb(221, 221, 221) 55%);
   color:#555;
   font-family:'Roboto';
   font-weight:300;
@@ -74,7 +73,7 @@ main{
 }
 
 .text{
-  font-size: 100px;
+  font-size: 6.5vw;
   background: -webkit-linear-gradient(rgb(200, 219, 246), rgb(126, 120, 179), rgb(96, 89, 104), rgb(74, 71, 76));
   background-clip: text;
   -webkit-background-clip: text;
@@ -121,4 +120,12 @@ main{
   30% { width: 355px; }
   80% { opacity: 1; }
   100% { opacity: 0; width: 355px; }
+}
+
+.mainBody{
+  background-image: url(https://i.pinimg.com/originals/05/59/94/05599424bb5a1b7819956d0288559697.gif), linear-gradient(141deg, #ccc 25%, #eee 40%, rgb(221, 221, 221) 55%);
+  background-repeat: no-repeat, no-repeat;
+  background-position:
+    top left,
+    right;
 }

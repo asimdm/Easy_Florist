@@ -1,56 +1,80 @@
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import ProductPage from "./pages/ProductPage";
-import Navbar from "react-bootstrap/Navbar";
-import Container from "react-bootstrap/Container";
-import { LinkContainer } from "react-router-bootstrap";
-import Nav from 'react-bootstrap/Nav';
-import Badge from 'react-bootstrap/Badge';
-import { useContext } from "react";
-import { Store } from "./Store";
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/esm/Col";
+import Row from "react-bootstrap/esm/Row";
+import { Link } from "react-router-dom";
 
-
-function App() {
-  const {state} = useContext(Store);
-  const {cart} = state;
+function LandingPage() {
   return (
-    <BrowserRouter>
-      <div className="d-flex flex-column site-container">
-        <header>
-          <Navbar>
-            <Container>
-              <LinkContainer to="/">
-                <Navbar.Brand>Easy Florist</Navbar.Brand>
-              </LinkContainer>
-              <Nav className="me-auto">
-                <Link to={"/cart"} className="nav-link">
-                  Cart
-                  {cart.cartItems.length > 0 && (
-                    <Badge pill bg="danger">
-                      {cart.cartItems.length}
-                    </Badge>
-                  )}
-                </Link>
-              </Nav>
-            </Container>
-          </Navbar>
-        </header>
-        <main>
-            <Routes>
-              <Route path="/products/id/:productId" element={<ProductPage />} />
-              <Route path="/home" element={<HomePage />} />
-            </Routes>
-        </main>
-        <footer>
-          <Container>
-            <div className="text-center">
-              <p>All Rights Reserved</p>
-            </div>
-          </Container>
-        </footer>
+    <div className="mainBody">
+      <div className="background">
+        <h1 className="text showup">Easy Florist</h1>
+        <div>
+          <h1 className="text reveal">
+            <span className="slidein">The garden of your dreams</span>
+          </h1>
+        </div>
       </div>
-    </BrowserRouter>
+
+      <div>
+        <h3
+          style={{
+            fontFamily: "Roboto",
+            marginLeft: "12px",
+            color: "rgb(59, 111, 98)",
+          }}>
+          Most Sought After
+        </h3>
+        <Row>
+          <Col>
+            <Link to={`/home`}>
+              <Card className="text-center p-2 m-1">
+                <Card.Img
+                  variant="top"
+                  src="https://i0.wp.com/beato.com.sg/wp-content/uploads/2022/07/How-to-keep-flowers-fresh-after-buying-scaled.jpg?fit=2560%2C1707&ssl=1"
+                />
+                <Card.Body>
+                  <Card.Title>Lilies</Card.Title>
+                </Card.Body>
+              </Card>
+            </Link>
+          </Col>
+          <Col>
+            <Card className="text-center p-2 m-1">
+              <Card.Img
+                variant="top"
+                src="https://i0.wp.com/beato.com.sg/wp-content/uploads/2022/07/How-to-keep-flowers-fresh-after-buying-scaled.jpg?fit=2560%2C1707&ssl=1"
+              />
+              <Card.Body>
+                <Card.Title>Lilies</Card.Title>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col>
+            <Card className="text-center p-2 m-1">
+              <Card.Img
+                variant="top"
+                src="https://i0.wp.com/beato.com.sg/wp-content/uploads/2022/07/How-to-keep-flowers-fresh-after-buying-scaled.jpg?fit=2560%2C1707&ssl=1"
+              />
+              <Card.Body>
+                <Card.Title>Lilies</Card.Title>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col>
+            <Card className="text-center p-2 m-1">
+              <Card.Img
+                variant="top"
+                src="https://i0.wp.com/beato.com.sg/wp-content/uploads/2022/07/How-to-keep-flowers-fresh-after-buying-scaled.jpg?fit=2560%2C1707&ssl=1"
+              />
+              <Card.Body>
+                <Card.Title>Lilies</Card.Title>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </div>
+    </div>
   );
 }
 
-export default App;
+export default LandingPage;
