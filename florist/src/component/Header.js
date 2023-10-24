@@ -15,7 +15,7 @@ function Header() {
       <header>
         <Navbar>
           <Container>
-            <LinkContainer to="/">
+            <LinkContainer to="/home">
               <Navbar.Brand>Easy Florist</Navbar.Brand>
             </LinkContainer>
             <Nav className="me-auto">
