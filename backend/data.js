@@ -1,7 +1,7 @@
 const data = {
     products:[
         {
-            productId: 1,
+            _id: '1',
             name: 'Midnight Blue Orchids',
             slug: 'midnight-blue-orchid',
             price: 850,
@@ -19,7 +19,7 @@ const data = {
             ],
         },
         {
-            productId: 2,
+            _id: '2',
             name: 'Soothing White Carnations',
             slug: 'soothing-white-carnations',
             price: 850,
@@ -37,7 +37,7 @@ const data = {
             ],
         },
         {
-            productId: 3,
+            _id: '3',
             name: 'Timeless Red Roses',
             slug: 'timeless-red-roses',
             price: 750,
@@ -56,7 +56,7 @@ const data = {
             ],
         },
         {
-            productId: 4,
+            _id: '4',
             name: 'Heavenly White Roses',
             slug: 'attractive-asiatic-lilies',
             price: 650,
@@ -74,7 +74,7 @@ const data = {
             ],
         },
         {
-            productId: 5,
+            _id: '5',
             name: 'Attractive Mixed Asiatic Lilies',
             slug: 'attractive-asiatic-lilies',
             price: 1350,

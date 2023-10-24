@@ -30,7 +30,7 @@ const reducer = (state, action) => {
 
 function ProductPage() {
   const params = useParams();
-  const { productId } = params;
+  const { _id } = params;
   const [{ loading, error, product }, dispatch] = useReducer(reducer, {
     loading: true,
     error: "",
@@ -40,17 +40,25 @@ function ProductPage() {
     const fetchData = async () => {
       dispatch({ type: "FETCH_REQUEST" });
       try {
-        const result = await axios.get(`/products/id/${productId}`);
+        const result = await axios.get(`/products/id/${_id}`);
         dispatch({ type: "FETCH_SUCCESS", payload: result.data });
       } catch (err) {
         dispatch({ type: "FETCH_ERROR", payload: getError(err) });
       }
     };
     fetchData();
-  }, [productId]);
+  }, [_id]);
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
-  const addToCartHandler = () => {
+  const {cart} = state;
+  const addToCartHandler = async() => {
+    const itemExist = cart.cartItems.find((x)=>x._id===product._id);
+    const quatity = itemExist ? itemExist.quantity+1 : 1;
+    const {data} = await axios.get(`/api/products/${product._id}`);
+    if(data.countInStock < quatity){
+      window.alert('Sorry! Item is out of stock');
+      return;
+    }
     ctxDispatch({ type: "CART_ADD", payload: { ...product, quantity: 1 } });
   };
 

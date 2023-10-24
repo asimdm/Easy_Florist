@@ -11,7 +11,7 @@ function App() {
       <div className="d-flex flex-column site-container mainBody">
         <main>
             <Routes>
-              <Route path="/products/id/:productId" element={<ProductPage />} />
+              <Route path="/products/id/:_id" element={<ProductPage />} />
               <Route path="/home" element={<HomePage />} />
               <Route path="/" element={<LandingPage />} />
             </Routes>
