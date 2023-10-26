@@ -29,7 +29,7 @@ function LandingPage() {
           Most Sought After
         </h3>
         <Row>
-          <Col>
+          <Col sm={6} md={4} lg={3}>
             <Link to={`/home`}>
               <Card className="text-center p-2 m-1">
                 <Card.Img
@@ -42,7 +42,7 @@ function LandingPage() {
               </Card>
             </Link>
           </Col>
-          <Col>
+          <Col sm={6} md={4} lg={3}>
             <Card className="text-center p-2 m-1">
               <Card.Img
                 variant="top"
@@ -53,7 +53,7 @@ function LandingPage() {
               </Card.Body>
             </Card>
           </Col>
-          <Col>
+          <Col sm={6} md={4} lg={3}>
             <Card className="text-center p-2 m-1">
               <Card.Img
                 variant="top"
@@ -64,7 +64,7 @@ function LandingPage() {
               </Card.Body>
             </Card>
           </Col>
-          <Col>
+          <Col sm={6} md={4} lg={3}>
             <Card className="text-center p-2 m-1">
               <Card.Img
                 variant="top"

@@ -59,7 +59,7 @@ function HomePage() {
         ) : error ? (
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
-          <Row>
+          <Row className="p-2">
             {products.map((product) => (
               <Col
                 sm={6}
