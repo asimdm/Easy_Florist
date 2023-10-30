@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage";
 import ProductPage from "./pages/ProductPage";
 import Container from "react-bootstrap/Container";
 import LandingPage from "./pages/LandingPage";
+import CartPage from "./pages/CartPage";
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <main>
             <Routes>
               <Route path="/products/id/:_id" element={<ProductPage />} />
+              <Route path="/cart" element={<CartPage />} />
               <Route path="/home" element={<HomePage />} />
               <Route path="/" element={<LandingPage />} />
             </Routes>

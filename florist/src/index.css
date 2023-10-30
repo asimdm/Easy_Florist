@@ -127,3 +127,7 @@ main{
     top left,
     right;
 }
+
+.img-thumbnail{
+  height: 80px;
+}
