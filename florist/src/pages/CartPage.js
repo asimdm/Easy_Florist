@@ -67,7 +67,7 @@ function CartPage() {
                         <i className="fas fa-plus-circle"></i>
                       </Button>
                     </Col>
-                    <Col md={3}>${item.price}</Col>
+                    <Col md={3}>${item.price*item.quantity}</Col>
                     <Col md={2}>
                       <Button variant="light">
                         <i className="fas fa-trash"></i>
