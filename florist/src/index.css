@@ -131,3 +131,7 @@ main{
 .img-thumbnail{
   height: 80px;
 }
+
+.round-corner{
+  border-radius: 10px;
+}

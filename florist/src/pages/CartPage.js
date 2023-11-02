@@ -21,12 +21,26 @@ function CartPage() {
         <title>Cart</title>
       </Helmet>
       <Header />
-      <h3>Your Bouquets</h3>
-      <Row>
+      <h3
+        style={{
+          fontFamily: "Roboto",
+          marginLeft: "12px",
+          color: "rgb(59, 111, 98)",
+        }}>
+        Your Bouquets
+      </h3>
+      <Row className="m-1">
         <Col md={8}>
           {cartItems.length === 0 ? (
-            <MessageBox>
-              Cart is empty.<Link to="/home">Our garden is here</Link>
+            <MessageBox className="msg">
+              <b>
+                <p>Cart is empty.</p>
+              </b>
+              <Link
+                to="/home"
+                style={{ textDecoration: "none", color: "#FF69B4" }}>
+                Add flowers here
+              </Link>
             </MessageBox>
           ) : (
             <ListGroup>
@@ -34,13 +48,13 @@ function CartPage() {
                 <ListGroup.Item key={item._id}>
                   <Row className="align-items-center">
                     <Col md={4}>
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="img-fluid rounded img-thumbnail"></img>{" "}
                       <Link
                         to={`/products/id/${item._id}`}
-                        style={{ textDecoration: "none" }}>
+                        style={{ textDecoration: "none", color: "#000000" }}>
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="img-fluid rounded img-thumbnail"></img>{" "}
                         {item.name}
                       </Link>
                     </Col>
@@ -70,19 +84,32 @@ function CartPage() {
             <Card.Body>
               <ListGroup variant="flush">
                 <ListGroup.Item>
-                  <h3>
-                    Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{" "}
-                    items): $
-                    {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
-                  </h3>
+                  <Row>
+                    <Col>
+                      Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{" "}
+                      items):
+                    </Col>{" "}
+                    <Col>
+                      <b>
+                        ${" "}
+                        {cartItems.reduce(
+                          (a, c) => a + c.price * c.quantity,
+                          0
+                        )}
+                      </b>
+                    </Col>
+                  </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
-                    <Button type="button" variant="primary" disabled={cartItems.length===0}>
-                        CHECKOUT
+                  <div className="d-grid">
+                    <Button
+                      style={{ backgroundColor: "#66b0de" }}
+                      disabled={cartItems.length === 0}>
+                      Checkout
                     </Button>
+                  </div>
                 </ListGroup.Item>
               </ListGroup>
-              <ListGroup></ListGroup>
             </Card.Body>
           </Card>
         </Col>

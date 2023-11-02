@@ -74,7 +74,7 @@ function ProductPage() {
   ) : (
     <div>
       <Header />
-      <Row>
+      <Row className="m-1">
         <Col md={5}>
           <img
             className="img-large"
@@ -82,7 +82,7 @@ function ProductPage() {
             alt={product.name}></img>
         </Col>
         <Col md={4}>
-          <ListGroup variant="flush">
+          <ListGroup variant="flush"  className="round-corner">
             <ListGroup.Item>
               <Helmet>
                 <title>{product.name}</title>

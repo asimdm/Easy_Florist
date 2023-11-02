@@ -52,8 +52,17 @@ function HomePage() {
       </Helmet>
       <Header />
       <Banner />
-      <h3 style={{marginTop:'30px'}}>Popular Bouquet</h3>
-      <div className="products" style={{marginTop:'10px'}}>
+      <h3
+        style={{
+          marginTop: "30px",
+          fontFamily: "Roboto",
+          marginLeft: "20px",
+          fontSize: "30px",
+          color: "rgb(59, 111, 98)",
+        }}>
+        Popular Bouquet
+      </h3>
+      <div className="products" style={{ marginTop: "5px" }}>
         {loading ? (
           <Loading />
         ) : error ? (
