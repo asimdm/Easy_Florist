@@ -4,8 +4,45 @@ import Row from "react-bootstrap/esm/Row";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/esm/Button";
+import axios from "axios";
+import { useEffect, useReducer } from "react";
+import { getError } from "../utils";
+import Loading from "../component/Loading";
+import MessageBox from "../component/MessageBox";
+
+const reducer = (state,action)=>{
+  switch(action.type){
+    case 'FETCH_REQUEST': 
+      return {...state,loading:true};
+    case 'FETCH_ERROR':
+      return {...state, loading:false, error: action.payload};
+    case 'FETCH_SUCCESS':
+      return {...state, loading:false, category:action.payload};
+    default:
+      return state;
+  }
+}
 
 function LandingPage() {
+  const[{loading,error,category},dispatch] = useReducer(reducer, {
+    loading: true,
+    error: '',
+    category: [],
+  });
+
+  useEffect(()=>{
+    const fetch_data=async()=>{
+      dispatch({type:'FETCH_REQUEST'});
+      try{
+        const result = await axios.get('/category');
+        dispatch({type:'FETCH_SUCCESS', payload:result.data});
+      }catch(err){
+        dispatch({type:'FETCH_ERROR', payload:getError(err)})
+      }
+    };
+    fetch_data();
+  });
+
   return (
     <div className="mainBody">
       <Helmet>
@@ -32,6 +69,15 @@ function LandingPage() {
           }}>
           Most Sought After
         </h3>
+        loading ? (
+          <div className="msg">
+            <Loading />
+          </div>
+        ): error ? (
+          <div className="msg">
+            <MessageBox variant="danger">{error}</MessageBox>
+          </div> 
+        ): (
         <Row>
           <Col sm={6} md={4} lg={3}>
             <Link to={`/home`}>
@@ -80,6 +126,7 @@ function LandingPage() {
             </Card>
           </Col>
         </Row>
+        )
       </div>
     </div>
   );

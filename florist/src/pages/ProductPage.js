@@ -53,7 +53,6 @@ function ProductPage() {
   const {cart} = state;
   const addToCartHandler = async() => {
     const itemExist = cart.cartItems.find((x)=>x._id===product._id);
-    console.log(itemExist);
     const quantity = itemExist ? itemExist.quantity+1 : 1;
     const {data} = await axios.get(`/products/id/${product._id}`);
     if(data.countInStock < quantity){
