@@ -3,6 +3,7 @@ import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import Button from "react-bootstrap/esm/Button";
 
 function LandingPage() {
   return (
@@ -16,6 +17,9 @@ function LandingPage() {
           <h1 className="text reveal">
             <span className="slidein">The garden of your dreams</span>
           </h1>
+        </div>
+        <div>
+          <Button variant="secondary">View</Button>
         </div>
       </div>
 
