@@ -65,18 +65,18 @@ function CategoryCards(){
             {category.map((cat)=>(
           <Col sm={6} md={4} lg={3}>
             <Link to={`/home`}  style={{ textDecoration: 'none'}}>
-              <Card className="text-center p-2 m-1" key={cat}>
+              <Card className="text-center p-2 m-1" key={cat.category}>
                 <Card.Img
                   variant="top"
-                  src="https://i0.wp.com/beato.com.sg/wp-content/uploads/2022/07/How-to-keep-flowers-fresh-after-buying-scaled.jpg?fit=2560%2C1707&ssl=1"
+                  src={cat.image}
                 />
                 <Card.Body>
-                  <Card.Title>{cat}</Card.Title>
+                  <Card.Title>{cat.category}</Card.Title>
                 </Card.Body>
               </Card>
             </Link>
           </Col>
-            ))};
+            ))}
         </Row>
       </div>
         </div>

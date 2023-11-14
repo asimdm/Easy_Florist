@@ -16,14 +16,19 @@ app.get("/products/id/:_id", (req, res) => {
 app.get("/categories", (req, res) => {
   let categories = [];
   categories = data.products.map((item) => {
-    return item.category;
+    return {"category":item.category,
+            "image":item.image
+          };
   });
-  categories=categories.reduce(function(acc,curr){
-    if(!acc.includes(curr))
-      acc.push(curr);
-    return acc;
-  },[]);
-  res.send(categories);
+  const uniqueCategoriesArray = [];
+  const categorySet = new Set();
+  categories.forEach(item => {
+    if (!categorySet.has(item.category)) {
+        categorySet.add(item.category);
+        uniqueCategoriesArray.push(item);
+    }
+});
+  res.send(uniqueCategoriesArray);
 });
 
 const port = process.env.PORT || 5000;
