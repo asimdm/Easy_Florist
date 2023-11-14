@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Button from "react-bootstrap/esm/Button";
 import CategoryCards from "../component/CategoryCards";
+import { Link } from "react-router-dom";
 
 function LandingPage() {
   return (
@@ -16,7 +17,9 @@ function LandingPage() {
           </h1>
         </div>
         <div>
-          <Button variant="secondary">View</Button>
+          <Link to={"/home"}>
+            <Button variant="secondary">View Bouquet</Button>
+          </Link>
         </div>
       </div>
       <CategoryCards />
