@@ -74,7 +74,7 @@ function CartPage() {
                       </Link>
                     </Col>
                     <Col md={3}>
-                      <Button variant="light" disabled={item.quantity === 1}>
+                      <Button variant="light" onClick={()=>updateCartHandler(item,item.quantity-1)} disabled={item.quantity === 1}>
                         <i className="fas fa-minus-circle"></i>
                       </Button>{" "}
                       <span>{item.quantity}</span>{" "}
