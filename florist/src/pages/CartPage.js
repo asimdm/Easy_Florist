@@ -26,6 +26,10 @@ function CartPage() {
     ctxDispatch({type:'CART_ADD', payload:{...item,quantity}});
   };
 
+  const deleteCartItems = (item)=>{
+    ctxDispatch({type:'CART_DELETE',payload:item})
+  }
+
   return (
     <div>
       <Helmet>
@@ -80,7 +84,7 @@ function CartPage() {
                     </Col>
                     <Col md={3}>${item.price*item.quantity}</Col>
                     <Col md={2}>
-                      <Button variant="light">
+                      <Button variant="light" onClick={()=>deleteCartItems(item)}>
                         <i className="fas fa-trash"></i>
                       </Button>
                     </Col>
