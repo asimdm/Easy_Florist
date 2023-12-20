@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Rating from "./Rating";
+import Button from "react-bootstrap/Button";
 
 function Products(props) {
   const { product } = props;
@@ -18,6 +19,11 @@ function Products(props) {
               <Rating
                 rating={product.rating}
                 numReviews={product.numReviews}></Rating>
+            </div>
+            <div className="d-grid gap-2">
+            <Button className="mt-3" size="sm" style={{"backgroundColor":"#71d8eb", color:"black", border:"none"}}>
+              Buy
+            </Button>
             </div>
           </Card.Body>
         </div>
