@@ -2,24 +2,34 @@ import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Rating from "./Rating";
 import Button from "react-bootstrap/Button";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Store } from "../Store";
 import axios from "axios";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index";
 
 function Products(props) {
   const { product } = props;
-  
+
+  const [message, setMessage] = useState(null);
+
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart } = state;
   const addToCartHandler = async () => {
-    const itemExist = cart.cartItems.find((x) => x._id === product._id);
-    const quantity = itemExist ? itemExist.quantity + 1 : 1;
-    const { data } = await axios.get(`/products/id/${product._id}`);
-    if (data.countInStock < quantity) {
-      window.alert("Sorry! Item is out of stock");
-      return;
+    try {
+      const itemExist = cart.cartItems.find((x) => x._id === product._id);
+      const quantity = itemExist ? itemExist.quantity + 1 : 1;
+      const { data } = await axios.get(`/products/id/${product._id}`);
+      if (data.countInStock < quantity) {
+        setMessage("Sorry! Item is out of stock");
+        return;
+      }
+      setMessage("Item added to Cart!");
+      ctxDispatch({ type: "CART_ADD", payload: { ...product, quantity } });
+    } catch (error) {
+      setMessage("An error occured while processing request");
+      console.log("Error: ", error);
     }
-    ctxDispatch({ type: "CART_ADD", payload: { ...product, quantity } });
   };
 
   return (
@@ -53,7 +63,9 @@ function Products(props) {
                 color: "white",
                 border: "none",
               }}
-              onClick={addToCartHandler}>
+              onClick={() => {
+                addToCartHandler();
+              }}>
               Buy
             </Button>
           </div>
