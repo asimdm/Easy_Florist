@@ -13,7 +13,7 @@ function Products(props) {
 
   const [visibility, setVisibility] = useState(false);
 
-  const [message, setMessage] = useState(false);
+  const [{message, code}, setMessage] = useState(false);
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart } = state;
@@ -23,13 +23,13 @@ function Products(props) {
       const quantity = itemExist ? itemExist.quantity + 1 : 1;
       const { data } = await axios.get(`/products/id/${product._id}`);
       if (data.countInStock < quantity) {
-        setMessage("Sorry! Item is out of stock");
+        setMessage({message:"Sorry! Item is out of stock", code:"error"});
         return;
       }
-      setMessage("Item added to Cart!");
+      setMessage({message:"Item added to Cart!", code:"cart"});
       ctxDispatch({ type: "CART_ADD", payload: { ...product, quantity } });
     } catch (error) {
-      setMessage("An error occured while processing request");
+      setMessage({message:"An error occured while processing request", code:"error"});
       console.log("Error: ", error);
     }
   };
@@ -72,7 +72,7 @@ function Products(props) {
               Buy
             </Button>
           </div>
-          <PopUp visibility={visibility} message={message} onClose={()=>setVisibility(false)} />
+          <PopUp visibility={visibility} message={message} code={code} onClose={()=>setVisibility(false)} />
         </Card.Body>
       </div>
     </Card>

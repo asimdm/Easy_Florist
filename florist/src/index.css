@@ -136,10 +136,15 @@ main{
   border-radius: 10px;
 }
 
+.popup-wrapper{
+  width: 5px;
+}
+
 .popup{
-  background-color: rgb(68, 180, 186);
+  background-image: linear-gradient(rgb(179, 243, 234), rgba(189, 236, 249, 0.675));
   text-align: center;
+  font-size: 20px;
   padding: 20px;
-  font-family: 'Libre Baskerville', cursive;
-  
+  font-family: 'Roboto';
+  width: auto;
 }
