@@ -5,13 +5,15 @@ import Button from "react-bootstrap/Button";
 import { useContext, useState } from "react";
 import { Store } from "../Store";
 import axios from "axios";
-import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index";
+import PopUp from "./PopUp";
 
 function Products(props) {
   const { product } = props;
 
-  const [message, setMessage] = useState(null);
+  const [visibility, setVisibility] = useState(false);
+
+  const [message, setMessage] = useState(false);
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart } = state;
@@ -56,7 +58,7 @@ function Products(props) {
           </Link>
           <div className="d-grid gap-2">
             <Button
-              className="mt-3"
+              className="mt-3 button"
               size="sm"
               style={{
                 backgroundColor: "#66b0de",
@@ -65,10 +67,12 @@ function Products(props) {
               }}
               onClick={() => {
                 addToCartHandler();
+                setVisibility(true);
               }}>
               Buy
             </Button>
           </div>
+          <PopUp visibility={visibility} message={message} onClose={()=>setVisibility(false)} />
         </Card.Body>
       </div>
     </Card>

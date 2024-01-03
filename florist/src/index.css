@@ -135,3 +135,11 @@ main{
 .round-corner{
   border-radius: 10px;
 }
+
+.popup{
+  background-color: rgb(68, 180, 186);
+  text-align: center;
+  padding: 20px;
+  font-family: 'Libre Baskerville', cursive;
+  
+}
