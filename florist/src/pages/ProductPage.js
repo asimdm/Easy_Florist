@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useContext, useEffect, useReducer } from "react";
+import { useContext, useEffect, useReducer, useState } from "react";
 import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";
 import ListGroup from "react-bootstrap/ListGroup";
@@ -14,6 +14,7 @@ import MessageBox from "../component/MessageBox";
 import { getError } from "../utils";
 import { Store } from "../Store";
 import Header from "../component/Header";
+import PopUp from "../component/PopUp";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -36,6 +37,11 @@ function ProductPage() {
     error: "",
     product: [],
   });
+
+  const [visibility, setVisibility] = useState(false);
+
+  const [{ message, code }, setMessage] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
       dispatch({ type: "FETCH_REQUEST" });
@@ -50,16 +56,25 @@ function ProductPage() {
   }, [_id]);
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
-  const {cart} = state;
-  const addToCartHandler = async() => {
-    const itemExist = cart.cartItems.find((x)=>x._id===product._id);
-    const quantity = itemExist ? itemExist.quantity+1 : 1;
-    const {data} = await axios.get(`/products/id/${product._id}`);
-    if(data.countInStock < quantity){
-      window.alert('Sorry! Item is out of stock');
+  const { cart } = state;
+  const addToCartHandler = async () => {
+    try {
+      const itemExist = cart.cartItems.find((x) => x._id === product._id);
+      const quantity = itemExist ? itemExist.quantity + 1 : 1;
+      const { data } = await axios.get(`/products/id/${product._id}`);
+      if (data.countInStock < quantity) {
+        setMessage({ message: "Sorry! Item is out of stock", code: "error" });
         return;
       }
-    ctxDispatch({ type: "CART_ADD", payload: { ...product, quantity} });
+      ctxDispatch({ type: "CART_ADD", payload: { ...product, quantity } });
+      setMessage({ message: "Item added to Cart!", code: "cart" });
+    } catch (err) {
+      setMessage({
+        message: "An error occured while processing request",
+        code: "error",
+      });
+      console.log("Error: ", err);
+    }
   };
 
   return loading ? (
@@ -81,7 +96,7 @@ function ProductPage() {
             alt={product.name}></img>
         </Col>
         <Col md={4}>
-          <ListGroup variant="flush"  className="round-corner">
+          <ListGroup variant="flush" className="round-corner">
             <ListGroup.Item>
               <Helmet>
                 <title>{product.name}</title>
@@ -135,7 +150,10 @@ function ProductPage() {
                   <ListGroup.Item>
                     <div className="d-grid">
                       <Button
-                        onClick={addToCartHandler}
+                        onClick={() => {
+                          addToCartHandler();
+                          setVisibility(true);
+                        }}
                         style={{ backgroundColor: "#66b0de" }}>
                         Buy
                       </Button>
@@ -143,6 +161,12 @@ function ProductPage() {
                   </ListGroup.Item>
                 )}
               </ListGroup>
+              <PopUp
+                visibility={visibility}
+                message={message}
+                code={code}
+                onClose={() => setVisibility(false)}
+              />
             </Card.Body>
           </Card>
         </Col>
