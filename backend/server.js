@@ -34,7 +34,7 @@ app.get("/categories", (req, res) => {
 app.get("/categories/:category", (req,res)=>{
   let products=[];
   products=data.products.map((product)=>{
-    if(product.category===category){
+    if(product.category===req.params.category){
       return product;
     }
   })
