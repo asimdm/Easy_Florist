@@ -31,6 +31,16 @@ app.get("/categories", (req, res) => {
   res.send(uniqueCategoriesArray);
 });
 
+app.get("/categories/:category", (req,res)=>{
+  let products=[];
+  products=data.products.map((product)=>{
+    if(product.category===category){
+      return product;
+    }
+  })
+  res.send(products);
+});
+
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`listening to port ${port}`);
